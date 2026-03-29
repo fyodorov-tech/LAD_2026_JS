@@ -48,3 +48,10 @@ const openModalButton = document.querySelector("#openModal");
 этот попап на экране?"
 Как назвать переменную? */
 let isPopupOpen = false; //Popup открыт? Или лучше назвать isOpenPopup - это открытый popup?
+
+/* 9. Строки для отображения
+Задача: В переменной собирается приветственное сообщение для
+пользователя, например, "Добро пожаловать, [Имя]!".
+Как назвать переменную? */
+const userName = "John Doe";
+const userGreeting = `Welcome to Homework 2, ${userName}!`;
