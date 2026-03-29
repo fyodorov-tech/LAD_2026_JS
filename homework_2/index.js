@@ -55,3 +55,16 @@ let isPopupOpen = false; //Popup открыт? Или лучше назвать 
 Как назвать переменную? */
 const userName = "John Doe";
 const userGreeting = `Welcome to Homework 2, ${userName}!`;
+
+/* 10. Функции-обработчики*
+Задача: Создаётся функция, которая будет вызвана при отправке
+пользователем формы регистрации.
+Как назвать эту функцию? */
+function handleRegistration(event) {
+  //тело функции
+}
+
+/* ну или 
+const handleRegistration = (event) => {
+  //тело функции
+}*/
