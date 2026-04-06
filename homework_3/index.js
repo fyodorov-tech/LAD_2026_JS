@@ -151,20 +151,54 @@
 /* 1. В переменной day лежит какое-то число из интервала от 1 до
 31. Определите в какую декаду месяца попадает это число (в
 первую, вторую или третью). */
-let day = 20;
+// let day = 20;
+// let result;
+
+// if (typeof day === "number") {
+//   if (day > 0 && day <= 10) {
+//     result = "Первая декада";
+//   } else if (day > 10 && day <= 20) {
+//     result = "Вторая декада";
+//   } else if (day > 20 && day <= 31) {
+//     result = "Третья декада";
+//   } else {
+//     result = "Переменная day должна быть числом от 1 до 31 включительно.";
+//   }
+// } else {
+//   result = "Переменная day должна быть числом.";
+// }
+// console.log(result);
+
+/* 2. В переменной month лежит какое-то число из интервала от 1
+до 12. Определите в какую пору года попадает этот месяц
+(зима, лето, весна, осень). */
+let month = 9;
 let result;
 
-if (typeof day === "number") {
-  if (day > 0 && day <= 10) {
-    result = "Первая декада";
-  } else if (day > 10 && day <= 20) {
-    result = "Вторая декада";
-  } else if (day > 20 && day <= 31) {
-    result = "Третья декада";
-  } else {
-    result = "Переменная day должна быть числом от 1 до 31 включительно.";
-  }
-} else {
-  result = "Переменная day должна быть числом.";
+//Можно сдедать на if else, но захотелось на switch
+switch (month) {
+  case 12:
+  case 1:
+  case 2:
+    result = "зима";
+    break;
+  case 3:
+  case 4:
+  case 5:
+    result = "весна";
+    break;
+  case 6:
+  case 7:
+  case 8:
+    result = "лето";
+    break;
+  case 9:
+  case 10:
+  case 11:
+    result = "осень";
+    break;
+  default:
+    result =
+      "Переменная month должна быть числом и может принимать значения от 1 до 12 включительно";
 }
 console.log(result);
