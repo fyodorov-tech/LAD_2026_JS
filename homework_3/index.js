@@ -272,9 +272,29 @@
 // console.log(sum);
 
 //      == Цикл for ==
-let sum = 0;
-for (i = 0; i <= 100; i++) {
-  sum += i;
+// let sum = 0;
+// for (i = 0; i <= 100; i++) {
+//   sum += i;
+// }
+
+// console.log(sum);
+
+//          == Задачи общие ==
+//      == Цикл while ==
+// let num = 0;
+// let n = 1000;
+
+// while (n >= 50) {
+//   n /= 2;
+//   num++;
+// }
+// console.log(num);
+
+//      == Цикл for ==
+let num = 0;
+
+for (let n = 1000; n >= 50; n /= 2) {
+  num++;
 }
 
-console.log(sum);
+console.log(num);
