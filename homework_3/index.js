@@ -207,6 +207,21 @@
 Проверьте, что первым символом этой строки является буква
 'a'. Если это так - выведите 'да', в противном случае выведите
 'нет'. */
-let str = "abcde";
-let result = str[0] === "a" ? "да" : "нет";
-console.log(result);
+// let str = "abcde";
+// let result = str[0] === "a" ? "да" : "нет";
+// console.log(result);
+
+//          == Циклы while и for ==
+/* 1. Выведите столбец чисел от 1 до 100. */
+//      == Цикл while
+// let i = 1;
+
+// while (i <= 100) {
+//   console.log(i);
+//   i++;
+// }
+
+//      == Цикл for
+for (let i = 1; i <= 100; i++) {
+  console.log(i);
+}
