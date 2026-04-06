@@ -258,3 +258,23 @@
 //     console.log(i);
 //   }
 // }
+
+/* 4. С помощью цикла найдите сумму чисел от 1 до 100. */
+//      == Цикл while ==
+// let sum = 0;
+// let i = 1;
+
+// while (i <= 100) {
+//   sum += i;
+//   i++;
+// }
+
+// console.log(sum);
+
+//      == Цикл for ==
+let sum = 0;
+for (i = 0; i <= 100; i++) {
+  sum += i;
+}
+
+console.log(sum);
