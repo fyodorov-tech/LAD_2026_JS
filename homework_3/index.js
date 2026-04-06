@@ -125,24 +125,46 @@
 Если она имеет значение '1', то в переменную result запишем
 'зима', если имеет значение '2' – 'весна' и так далее. Решите
 задачу через switch-case. */
-let num = null;
+// let num = null;
+// let result;
+
+// switch (num) {
+//   case 1:
+//     result = "зима";
+//     break;
+//   case 2:
+//     result = "весна";
+//     break;
+//   case 3:
+//     result = "лето";
+//     break;
+//   case 4:
+//     result = "осень";
+//     break;
+//   default:
+//     result =
+//       "Переменная num должна быть числом и может принимать только 4 значения: 1, 2, 3 или 4";
+// }
+// console.log(result);
+
+//          == Общие задачи ==
+/* 1. В переменной day лежит какое-то число из интервала от 1 до
+31. Определите в какую декаду месяца попадает это число (в
+первую, вторую или третью). */
+let day = 20;
 let result;
 
-switch (num) {
-  case 1:
-    result = "зима";
-    break;
-  case 2:
-    result = "весна";
-    break;
-  case 3:
-    result = "лето";
-    break;
-  case 4:
-    result = "осень";
-    break;
-  default:
-    result =
-      "Переменная num должна быть числом и может принимать только 4 значения: 1, 2, 3 или 4";
+if (typeof day === "number") {
+  if (day > 0 && day <= 10) {
+    result = "Первая декада";
+  } else if (day > 10 && day <= 20) {
+    result = "Вторая декада";
+  } else if (day > 20 && day <= 31) {
+    result = "Третья декада";
+  } else {
+    result = "Переменная day должна быть числом от 1 до 31 включительно.";
+  }
+} else {
+  result = "Переменная day должна быть числом.";
 }
 console.log(result);
