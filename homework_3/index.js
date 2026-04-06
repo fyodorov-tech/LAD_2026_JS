@@ -172,33 +172,41 @@
 /* 2. В переменной month лежит какое-то число из интервала от 1
 до 12. Определите в какую пору года попадает этот месяц
 (зима, лето, весна, осень). */
-let month = 9;
-let result;
+// let month = 9;
+// let result;
 
-//Можно сдедать на if else, но захотелось на switch
-switch (month) {
-  case 12:
-  case 1:
-  case 2:
-    result = "зима";
-    break;
-  case 3:
-  case 4:
-  case 5:
-    result = "весна";
-    break;
-  case 6:
-  case 7:
-  case 8:
-    result = "лето";
-    break;
-  case 9:
-  case 10:
-  case 11:
-    result = "осень";
-    break;
-  default:
-    result =
-      "Переменная month должна быть числом и может принимать значения от 1 до 12 включительно";
-}
+// //Можно сдедать на if else, но захотелось на switch
+// switch (month) {
+//   case 12:
+//   case 1:
+//   case 2:
+//     result = "зима";
+//     break;
+//   case 3:
+//   case 4:
+//   case 5:
+//     result = "весна";
+//     break;
+//   case 6:
+//   case 7:
+//   case 8:
+//     result = "лето";
+//     break;
+//   case 9:
+//   case 10:
+//   case 11:
+//     result = "осень";
+//     break;
+//   default:
+//     result =
+//       "Переменная month должна быть числом и может принимать значения от 1 до 12 включительно";
+// }
+// console.log(result);
+
+/* 3. Дана строка, состоящая из символов, например, 'abcde'.
+Проверьте, что первым символом этой строки является буква
+'a'. Если это так - выведите 'да', в противном случае выведите
+'нет'. */
+let str = "abcde";
+let result = str[0] === "a" ? "да" : "нет";
 console.log(result);
