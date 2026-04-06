@@ -222,6 +222,20 @@
 // }
 
 //      == Цикл for
-for (let i = 1; i <= 100; i++) {
+// for (let i = 1; i <= 100; i++) {
+//   console.log(i);
+// }
+
+/* 2. Выведите столбец чисел от 11 до 33. */
+//      == Цикл while ==
+// let i = 11;
+
+// while (i <= 33) {
+//   console.log(i);
+//   i++;
+// }
+
+//      == Цикл for ==
+for (let i = 11; i <= 33; i++) {
   console.log(i);
 }
