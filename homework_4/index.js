@@ -139,25 +139,40 @@
 более 9-ти, опять сложите его цифры. И так, пока сумма не
 станет однозначным числом (9 и менее). Можно использовать
 функцию getDigitsSum из 9 задачи */
-const getDigitsSum = number => {
-  if (typeof number !== "number") {
-    return "Некорректные данные. Аргументом функции должно быть число";
+// const getDigitsSum = number => {
+//   if (typeof number !== "number") {
+//     return "Некорректные данные. Аргументом функции должно быть число";
+//   }
+
+//   let digitsSum = 0;
+//   let absNumber = Math.abs(number);
+
+//   while (absNumber > 0) {
+//     digitsSum += absNumber % 10;
+//     absNumber = Math.floor(absNumber / 10);
+//   }
+
+//   return digitsSum;
+// };
+
+// let number = 19348;
+
+// while (number > 9) {
+//   number = getDigitsSum(number);
+// }
+// console.log(number);
+
+/* 13. * Напишите стрелочную функцию, которая будет
+возвращать true если строка является палиндромом и false в
+противном случае. */
+const isPalindrome = str => {
+  str = str.toLowerCase();
+  let reversedStr = "";
+
+  for (let i = str.length - 1; i >= 0; i--) {
+    reversedStr += str[i];
   }
-
-  let digitsSum = 0;
-  let absNumber = Math.abs(number);
-
-  while (absNumber > 0) {
-    digitsSum += absNumber % 10;
-    absNumber = Math.floor(absNumber / 10);
-  }
-
-  return digitsSum;
+  return str === reversedStr;
 };
 
-let number = 19348;
-
-while (number > 9) {
-  number = getDigitsSum(number);
-}
-console.log(number);
+console.log(isPalindrome("Заказ"));
