@@ -45,6 +45,12 @@
 // console.log(getDayOfWeek(5));
 
 /* 5. Сделайте функцию, которая параметрами принимает 2 числа. Если эти числа равны - пусть функция вернет true, а если не равны - false. */
-const isEqual = (firstNumber, secondNumber) => firstNumber === secondNumber;
+// const isEqual = (firstNumber, secondNumber) => firstNumber === secondNumber;
 
-console.log(isEqual(2, 2));
+// console.log(isEqual(2, 2));
+
+/* 6. Сделайте функцию, которая параметрами принимает 2 числа. Если их сумма больше 10 - пусть вернет true, а если нет то - false. */
+const isSumGreaterThanTen = (firstNumber, secondNumber) =>
+  firstNumber + secondNumber > 10;
+
+console.log(isSumGreaterThanTen(8, 3));
