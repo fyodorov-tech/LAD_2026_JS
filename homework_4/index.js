@@ -50,7 +50,11 @@
 // console.log(isEqual(2, 2));
 
 /* 6. Сделайте функцию, которая параметрами принимает 2 числа. Если их сумма больше 10 - пусть вернет true, а если нет то - false. */
-const isSumGreaterThanTen = (firstNumber, secondNumber) =>
-  firstNumber + secondNumber > 10;
+// const isSumGreaterThanTen = (firstNumber, secondNumber) =>
+//   firstNumber + secondNumber > 10;
 
-console.log(isSumGreaterThanTen(8, 3));
+// console.log(isSumGreaterThanTen(8, 3));
+
+/* 7. Сделайте функцию, которая параметром принимает число и проверяет - отрицательное оно или нет. Если отрицательное - пусть функция вернет true, а если нет - false. */
+const isNegativeNumber = number => number < 0;
+console.log(isNegativeNumber(-2));
