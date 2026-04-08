@@ -60,6 +60,47 @@
 // console.log(isNegativeNumber(-2));
 
 /* 8. Сделайте функцию isNumberInRange, которая параметром принимает число и проверяет, что оно больше нуля и меньше 10. Если это так - пусть функция возвращает true, если не так - false. */
-const isNumberInRange = number => number > 0 && number < 10;
+// const isNumberInRange = number => number > 0 && number < 10;
 
-console.log(isNumberInRange(5));
+// console.log(isNumberInRange(5));
+
+/* 9. *Сделайте функцию getDigitsSum (digit - это цифра), которая параметром принимает целое число и возвращает сумму его цифр. */
+
+//Вариант 1 (без готовых методов/функций)
+// const getDigitsSum = number => {
+//   if (typeof number !== "number") {
+//     return "Некорректные данные. Аргументом функции должно быть число";
+//   }
+
+//   let digitsSum = 0;
+//   number = number < 0 ? -number : number;
+
+//   let strOfNumber = "" + number;
+
+//   for (let i = 0; i < strOfNumber.length; i++) {
+//     digitsSum += +strOfNumber[i];
+//   }
+
+//   return digitsSum;
+// };
+
+// console.log(getDigitsSum(123));
+
+//Вариант 2
+const getDigitsSum = number => {
+  if (typeof number !== "number") {
+    return "Некорректные данные. Аргументом функции должно быть число";
+  }
+
+  let digitsSum = 0;
+  let absNumber = Math.abs(number);
+
+  while (absNumber > 0) {
+    digitsSum += absNumber % 10;
+    absNumber = Math.floor(absNumber / 10);
+  }
+
+  return digitsSum;
+};
+
+console.log(getDigitsSum("123"));
