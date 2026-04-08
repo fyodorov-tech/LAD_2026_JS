@@ -1,9 +1,9 @@
 /* 1. Сделайте функцию, которая возвращает квадрат числа. Число передается параметром. */
-// function getSquare(number) {
-//   return number ** 2;
-// }
+function getSquare(number) {
+  return number ** 2;
+}
 
-// console.log(getSquare(5));
+console.log(getSquare(5));
 
 /* 2. Сделайте функцию, которая возвращает сумму двух чисел. */
 // function getSum(firstNumber, secondNumber) {
@@ -165,14 +165,14 @@
 /* 13. * Напишите стрелочную функцию, которая будет
 возвращать true если строка является палиндромом и false в
 противном случае. */
-const isPalindrome = str => {
-  str = str.toLowerCase();
-  let reversedStr = "";
+// const isPalindrome = str => {
+//   str = str.toLowerCase();
+//   let reversedStr = "";
 
-  for (let i = str.length - 1; i >= 0; i--) {
-    reversedStr += str[i];
-  }
-  return str === reversedStr;
-};
+//   for (let i = str.length - 1; i >= 0; i--) {
+//     reversedStr += str[i];
+//   }
+//   return str === reversedStr;
+// };
 
-console.log(isPalindrome("Заказ"));
+// console.log(isPalindrome("Заказ"));
