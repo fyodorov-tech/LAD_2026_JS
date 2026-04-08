@@ -56,5 +56,10 @@
 // console.log(isSumGreaterThanTen(8, 3));
 
 /* 7. Сделайте функцию, которая параметром принимает число и проверяет - отрицательное оно или нет. Если отрицательное - пусть функция вернет true, а если нет - false. */
-const isNegativeNumber = number => number < 0;
-console.log(isNegativeNumber(-2));
+// const isNegativeNumber = number => number < 0;
+// console.log(isNegativeNumber(-2));
+
+/* 8. Сделайте функцию isNumberInRange, которая параметром принимает число и проверяет, что оно больше нуля и меньше 10. Если это так - пусть функция возвращает true, если не так - false. */
+const isNumberInRange = number => number > 0 && number < 10;
+
+console.log(isNumberInRange(5));
