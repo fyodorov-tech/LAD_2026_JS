@@ -14,6 +14,7 @@
 
 /* 3. Сделайте функцию, которая отнимает от первого числа второе и делит на третье. */
 // const subtractAndDivide = function (firstNumber, secondNumber, thirdNumber) {
+//   //Проверку деления на ноль не стал делать, так как посчитал допустимыи результат деления -  infinity
 //   return (firstNumber - secondNumber) / thirdNumber;
 // };
 
