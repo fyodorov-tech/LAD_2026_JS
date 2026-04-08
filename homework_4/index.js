@@ -20,25 +20,30 @@
 // console.log(subtractAndDivide(12, 6, 3));
 
 /* 4. Сделайте функцию, которая принимает параметром число от 1 до 7, а возвращает день недели на русском языке. */
-function getDayOfWeek(value) {
-  switch (value) {
-    case 1:
-      return "Понедельник";
-    case 2:
-      return "Вторник";
-    case 3:
-      return "Среда";
-    case 4:
-      return "Четверг";
-    case 5:
-      return "Пятница";
-    case 6:
-      return "Суббота";
-    case 7:
-      return "Воскресенье";
-    default:
-      return "Передаваемый в функцию аргумент должен быть числом и иметь значение от 1 до 7 включительно";
-  }
-}
+// function getDayOfWeek(value) {
+//   switch (value) {
+//     case 1:
+//       return "Понедельник";
+//     case 2:
+//       return "Вторник";
+//     case 3:
+//       return "Среда";
+//     case 4:
+//       return "Четверг";
+//     case 5:
+//       return "Пятница";
+//     case 6:
+//       return "Суббота";
+//     case 7:
+//       return "Воскресенье";
+//     default:
+//       return "Передаваемый в функцию аргумент должен быть числом и иметь значение от 1 до 7 включительно";
+//   }
+// }
 
-console.log(getDayOfWeek(5));
+// console.log(getDayOfWeek(5));
+
+/* 5. Сделайте функцию, которая параметрами принимает 2 числа. Если эти числа равны - пусть функция вернет true, а если не равны - false. */
+const isEqual = (firstNumber, secondNumber) => firstNumber === secondNumber;
+
+console.log(isEqual(2, 2));
