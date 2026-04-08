@@ -132,5 +132,32 @@
 параметром принимает целое число и проверяет: четное оно
 или нет. Если четное - пусть функция возвращает true, если
 нечетное - false. */
-const isEven = number => number % 2 === 0;
-console.log(isEven(4));
+// const isEven = number => number % 2 === 0;
+// console.log(isEven(4));
+
+/* 12. *Дано число. Сложите его цифры. Если сумма получилась
+более 9-ти, опять сложите его цифры. И так, пока сумма не
+станет однозначным числом (9 и менее). Можно использовать
+функцию getDigitsSum из 9 задачи */
+const getDigitsSum = number => {
+  if (typeof number !== "number") {
+    return "Некорректные данные. Аргументом функции должно быть число";
+  }
+
+  let digitsSum = 0;
+  let absNumber = Math.abs(number);
+
+  while (absNumber > 0) {
+    digitsSum += absNumber % 10;
+    absNumber = Math.floor(absNumber / 10);
+  }
+
+  return digitsSum;
+};
+
+let number = 19348;
+
+while (number > 9) {
+  number = getDigitsSum(number);
+}
+console.log(number);
