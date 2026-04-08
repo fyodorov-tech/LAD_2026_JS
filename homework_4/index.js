@@ -87,6 +87,25 @@
 // console.log(getDigitsSum(123));
 
 //Вариант 2
+// const getDigitsSum = number => {
+//   if (typeof number !== "number") {
+//     return "Некорректные данные. Аргументом функции должно быть число";
+//   }
+
+//   let digitsSum = 0;
+//   let absNumber = Math.abs(number);
+
+//   while (absNumber > 0) {
+//     digitsSum += absNumber % 10;
+//     absNumber = Math.floor(absNumber / 10);
+//   }
+
+//   return digitsSum;
+// };
+
+// console.log(getDigitsSum("123"));
+
+/* 10. *Найдите все года от 1 до 2020, сумма цифр которых равна 13. Для этого используйте вспомогательную функцию getDigitsSum из предыдущей задачи. */
 const getDigitsSum = number => {
   if (typeof number !== "number") {
     return "Некорректные данные. Аргументом функции должно быть число";
@@ -103,4 +122,8 @@ const getDigitsSum = number => {
   return digitsSum;
 };
 
-console.log(getDigitsSum("123"));
+for (let i = 1; i <= 2020; i++) {
+  if (getDigitsSum(i) === 13) {
+    console.log(i);
+  }
+}
