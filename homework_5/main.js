@@ -14,6 +14,18 @@
 // console.log(insertDash(str));
 
 /* 4. Напишите функцию, которая принимает строку в качестве аргумента и преобразует регистр первого символа строки из нижнего регистра в верхний. */
-const makeFirstToUpper = str => `${str[0].toUpperCase()}${str.substring(1)}`;
-const str = "живу между if и else";
-console.log(makeFirstToUpper(str));
+// const makeFirstToUpper = str => `${str[0].toUpperCase()}${str.substring(1)}`;
+// const str = "живу между if и else";
+// console.log(makeFirstToUpper(str));
+
+/* 5.Напишите функцию capitalize(str), которая возвращает строку, в которой каждое слово начинается с заглавной буквы. */
+const capitalize = str => {
+  const strArray = str
+    .split(" ")
+    .map(word => `${word[0].toUpperCase()}${word.slice(1)}`);
+
+  return strArray.join(" ");
+};
+
+const str = "Собран из багов и кофе";
+console.log(capitalize(str));
