@@ -127,9 +127,17 @@
 // console.log(zeros(4, -3));
 
 /* 9. Напишите функцию comparison(str1, str2), которая сравнивает строки без учёта регистра символов. */
-const comparison = (str, otherStr) =>
-  str.toUpperCase() === otherStr.toUpperCase();
+// const comparison = (str, otherStr) =>
+//   str.toUpperCase() === otherStr.toUpperCase();
 
-const str = "сИстеМа Дала СбоЙ - теМпературА 38";
-const otherStr = "сиСтема даЛА сБой - темпЕраТура 38";
-console.log(comparison(str, otherStr));
+// const str = "сИстеМа Дала СбоЙ - теМпературА 38";
+// const otherStr = "сиСтема даЛА сБой - темпЕраТура 38";
+// console.log(comparison(str, otherStr));
+
+/* 10. Напишите функцию insensitiveSearch(str1, str2), которая
+осуществляет поиск подстроки str2 в строке str1 без учёта
+регистра символов. */
+const insensitiveSearch = (str, otherStr) =>
+  str.toUpperCase().includes(otherStr.toUpperCase());
+
+console.log(insensitiveSearch("Россия", "РОС"));
