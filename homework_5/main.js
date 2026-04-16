@@ -102,26 +102,34 @@
 /* Вариант 2. Своя задача. Напишите функцию zeros(num, len), которая дополняет нулями до указанной длины числовое значение в зависимости от передаваемого аргумента len. 
 Если len > 0, то число num дополняется нулями справа и функция возвращает целое число.
 Если len < 0, то число num дополняется нулями слева и функция возвращает вещественное число */
-const zeros = (num, len) => {
-  if (typeof num !== "number" || typeof len !== "number") {
-    return "Некорректное значение. Передаваемые аргументы должны быть числами.";
-  }
+// const zeros = (num, len) => {
+//   if (typeof num !== "number" || typeof len !== "number") {
+//     return "Некорректное значение. Передаваемые аргументы должны быть числами.";
+//   }
 
-  let sign = num < 0 ? "-" : "";
-  let absNumStr = Math.abs(num).toString();
+//   let sign = num < 0 ? "-" : "";
+//   let absNumStr = Math.abs(num).toString();
 
-  let zerosCount = Math.abs(len) - absNumStr.length;
-  let zerosStr = ""; //до выполнения задания не знал что можно использовать "0".repeat(zerosCount), поэтому формировал строку нулей сам
-  let i = 0;
+//   let zerosCount = Math.abs(len) - absNumStr.length;
+//   let zerosStr = ""; //до выполнения задания не знал что можно использовать "0".repeat(zerosCount), поэтому формировал строку нулей сам
+//   let i = 0;
 
-  while (i < zerosCount) {
-    zerosStr += 0;
-    i++;
-  }
+//   while (i < zerosCount) {
+//     zerosStr += 0;
+//     i++;
+//   }
 
-  return len < 0
-    ? +`${sign}0.${zerosStr}${absNumStr}`
-    : +`${sign}${absNumStr}${zerosStr}`;
-};
+//   return len < 0
+//     ? +`${sign}0.${zerosStr}${absNumStr}`
+//     : +`${sign}${absNumStr}${zerosStr}`;
+// };
 
-console.log(zeros(4, -3));
+// console.log(zeros(4, -3));
+
+/* 9. Напишите функцию comparison(str1, str2), которая сравнивает строки без учёта регистра символов. */
+const comparison = (str, otherStr) =>
+  str.toUpperCase() === otherStr.toUpperCase();
+
+const str = "сИстеМа Дала СбоЙ - теМпературА 38";
+const otherStr = "сиСтема даЛА сБой - темпЕраТура 38";
+console.log(comparison(str, otherStr));
