@@ -44,18 +44,39 @@
 // console.log(changeRegister(str));
 
 /* Вариант без использования массивов */
-const changeRegister = str => {
+// const changeRegister = str => {
+//   let result = "";
+
+//   for (let i = 0; i < str.length; i++) {
+//     result +=
+//       str[i] === str[i].toUpperCase()
+//         ? str[i].toLowerCase()
+//         : str[i].toUpperCase();
+//   }
+
+//   return result;
+// };
+
+// const str = "КаЖдЫй ОхОтНиК";
+// console.log(changeRegister(str));
+
+/* 7. Напишите функцию removeChar(str), которая возвращает строку, очищенную от всех не буквенно-цифровых символов. */
+const removeChar = str => {
   let result = "";
+  const upperStr = str.toUpperCase(); // Привожу к высокому регистру, чтобы не прописывать дополнительные условия проверки в if
 
   for (let i = 0; i < str.length; i++) {
-    result +=
-      str[i] === str[i].toUpperCase()
-        ? str[i].toLowerCase()
-        : str[i].toUpperCase();
+    if (
+      (upperStr[i] >= "А" && upperStr[i] <= "Я") ||
+      (upperStr[i] >= "A" && upperStr[i] <= "Z") ||
+      (upperStr[i] >= "0" && upperStr[i] <= "9")
+    ) {
+      result += str[i];
+    }
   }
 
   return result;
 };
 
-const str = "КаЖдЫй ОхОтНиК";
-console.log(changeRegister(str));
+const str = "!Jun-ior24Fr$*ont-+end,7р..аз--Р?АБ";
+console.log(removeChar(str));
