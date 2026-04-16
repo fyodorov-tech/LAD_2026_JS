@@ -61,22 +61,67 @@
 // console.log(changeRegister(str));
 
 /* 7. Напишите функцию removeChar(str), которая возвращает строку, очищенную от всех не буквенно-цифровых символов. */
-const removeChar = str => {
-  let result = "";
-  const upperStr = str.toUpperCase(); // Привожу к высокому регистру, чтобы не прописывать дополнительные условия проверки в if
+// const removeChar = str => {
+//   let result = "";
+//   const upperStr = str.toUpperCase(); // Привожу к верхнему регистру, чтобы не прописывать дополнительные условия проверки в if
 
-  for (let i = 0; i < str.length; i++) {
-    if (
-      (upperStr[i] >= "А" && upperStr[i] <= "Я") ||
-      (upperStr[i] >= "A" && upperStr[i] <= "Z") ||
-      (upperStr[i] >= "0" && upperStr[i] <= "9")
-    ) {
-      result += str[i];
-    }
+//   for (let i = 0; i < str.length; i++) {
+//     if (
+//       (upperStr[i] >= "А" && upperStr[i] <= "Я") ||
+//       (upperStr[i] >= "A" && upperStr[i] <= "Z") ||
+//       (upperStr[i] >= "0" && upperStr[i] <= "9")
+//     ) {
+//       result += str[i];
+//     }
+//   }
+
+//   return result;
+// };
+
+// const str = "!Jun-ior24Fr$*ont-+end,7р..аз--Р?АБ";
+// console.log(removeChar(str));
+
+/* 8. Напишите функцию zeros(num, len), которая дополняет нулями до указанной длины числовое значение с дополнительным знаком «+» или «-» в зависимости от передаваемого аргумента. */
+
+/* Вариант 1 */
+// const zeros = (num, len) => {
+//   let result = num < 0 ? `${num}` : `+${num}`;
+//   const zeroCount = len - (result.length - 1);
+//   let i = 0;
+
+//   while (i < zeroCount) {
+//     result += 0;
+//     i++;
+//   }
+
+//   return result;
+// };
+
+// console.log(zeros(-22, 5));
+
+/* Вариант 2. Своя задача. Напишите функцию zeros(num, len), которая дополняет нулями до указанной длины числовое значение в зависимости от передаваемого аргумента len. 
+Если len > 0, то число num дополняется нулями справа и функция возвращает целое число.
+Если len < 0, то число num дополняется нулями слева и функция возвращает вещественное число */
+const zeros = (num, len) => {
+  if (typeof num !== "number" || typeof len !== "number") {
+    return "Некорректное значение. Передаваемые аргументы должны быть числами.";
   }
 
-  return result;
+  let sign = num < 0 ? "-" : "";
+  let absNumStr = Math.abs(num).toString();
+
+  let zerosCount = Math.abs(len) - absNumStr.length;
+  let zerosStr = ""; //до выполнения задания не знал что можно использовать "0".repeat(zerosCount), поэтому формировал строку нулей сам
+  let i = 0;
+
+  while (i < zerosCount) {
+    zerosStr += 0;
+    i++;
+  }
+
+  return len < 0
+    ? +`${sign}0.${zerosStr}${absNumStr}`
+    : +`${sign}${absNumStr}${zerosStr}`;
 };
 
-const str = "!Jun-ior24Fr$*ont-+end,7р..аз--Р?АБ";
-console.log(removeChar(str));
+console.log(zeros(4, -3));
