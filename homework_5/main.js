@@ -137,7 +137,22 @@
 /* 10. Напишите функцию insensitiveSearch(str1, str2), которая
 осуществляет поиск подстроки str2 в строке str1 без учёта
 регистра символов. */
-const insensitiveSearch = (str, otherStr) =>
-  str.toUpperCase().includes(otherStr.toUpperCase());
+// const insensitiveSearch = (str, otherStr) =>
+//   str.toUpperCase().includes(otherStr.toUpperCase());
 
-console.log(insensitiveSearch("Россия", "РОС"));
+// console.log(insensitiveSearch("Россия", "РОС"));
+
+/* 11. Напишите функцию initCap(str), которая преобразует стиль
+написания составных слов строки в CamelCase, при котором
+несколько слов пишутся слитно без пробелов, при этом каждое
+слово внутри строки пишется с заглавной буквы. */
+const initCap = str => {
+  return str
+    .split(" ")
+    .filter(word => word.length > 0) // сначала сделал без .filter, потом через нейронку прогнал. Нейронка дала совет использовать .filter или регулярные выражения добавив в split(/\s+/)
+    .map(word => word[0].toUpperCase() + word.slice(1).toLowerCase())
+    .join("");
+  0;
+};
+
+console.log(initCap("uSeR     naMe"));
