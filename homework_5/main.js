@@ -178,14 +178,39 @@ snake_case, при котором несколько слов разделяют
 
 /* 13. Напишите функцию repeatStr(str, n), которая возвращает
 строку повторяемую определённое количество раз. */
-const repeatStr = (str, n) => {
+// const repeatStr = (str, n) => {
+//   let result = "";
+
+//   for (let i = 0; i < n; i++) {
+//     result += str + "\n";
+//   }
+//   return result;
+// };
+
+// const str = "Hello world!";
+// console.log(repeatStr(str, 5));
+
+/* 14. Напишите функцию path(pathname), которая возвращает
+имя файла (подстрока после последнего символа "\" ) из
+полного пути к файлу. */
+/* Вариант */
+// const path = pathName => pathName.split("\\").pop();
+
+// const filePath = "C:\\Users\\User\\Desktop\\file.txt";
+// console.log(path(filePath));
+
+/* Вариант 2 */
+const path = pathName => {
   let result = "";
 
-  for (let i = 0; i < n; i++) {
-    result += str + "\n";
+  for (let i = pathName.length - 1; i >= 0; i--) {
+    if (pathName[i] === "\\") {
+      break;
+    }
+    result = pathName[i] + result;
   }
   return result;
 };
 
-const str = "Hello world!";
-console.log(repeatStr(str, 5));
+const filePath = "C:\\Users\\User\\Desktop\\file.txt";
+console.log(path(filePath));
