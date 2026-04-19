@@ -162,16 +162,30 @@ snake_case, при котором несколько слов разделяют
 символом подчеркивания (_), причём каждое слово пишется с
 маленькой буквы. */
 
-const initSnake = str => {
-  let resultStr = str[0].toLowerCase();
+// const initSnake = str => {
+//   let resultStr = str[0].toLowerCase();
 
-  for (let i = 1; i < str.length; i++) {
-    str[i] === str[i].toUpperCase()
-      ? (resultStr += `_${str[i].toLowerCase()}`)
-      : (resultStr += str[i]);
+//   for (let i = 1; i < str.length; i++) {
+//     str[i] === str[i].toUpperCase()
+//       ? (resultStr += `_${str[i].toLowerCase()}`)
+//       : (resultStr += str[i]);
+//   }
+//   return resultStr;
+// };
+
+// const str = "CamelCaseHomeWork";
+// console.log(initSnake(str));
+
+/* 13. Напишите функцию repeatStr(str, n), которая возвращает
+строку повторяемую определённое количество раз. */
+const repeatStr = (str, n) => {
+  let result = "";
+
+  for (let i = 0; i < n; i++) {
+    result += str + "\n";
   }
-  return resultStr;
+  return result;
 };
 
-const str = "CamelCaseHomeWork";
-console.log(initSnake(str));
+const str = "Hello world!";
+console.log(repeatStr(str, 5));
