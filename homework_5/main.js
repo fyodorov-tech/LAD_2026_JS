@@ -146,13 +146,32 @@
 написания составных слов строки в CamelCase, при котором
 несколько слов пишутся слитно без пробелов, при этом каждое
 слово внутри строки пишется с заглавной буквы. */
-const initCap = str => {
-  return str
-    .split(" ")
-    .filter(word => word.length > 0) // сначала сделал без .filter, потом через нейронку прогнал. Нейронка дала совет использовать .filter или регулярные выражения добавив в split(/\s+/)
-    .map(word => word[0].toUpperCase() + word.slice(1).toLowerCase())
-    .join("");
-  0;
+// const initCap = str => {
+//   return str
+//     .split(" ")
+//     .map(word => word[0].toUpperCase() + word.slice(1).toLowerCase())
+//     .join("");
+//   0;
+// };
+
+// console.log(initCap("user name"));
+
+/* 12. Напишите функцию initSnake(str), которая преобразует
+стиль написания составных слов строки из CamelCase в
+snake_case, при котором несколько слов разделяются
+символом подчеркивания (_), причём каждое слово пишется с
+маленькой буквы. */
+
+const initSnake = str => {
+  let resultStr = str[0].toLowerCase();
+
+  for (let i = 1; i < str.length; i++) {
+    str[i] === str[i].toUpperCase()
+      ? (resultStr += `_${str[i].toLowerCase()}`)
+      : (resultStr += str[i]);
+  }
+  return resultStr;
 };
 
-console.log(initCap("uSeR     naMe"));
+const str = "CamelCaseHomeWork";
+console.log(initSnake(str));
