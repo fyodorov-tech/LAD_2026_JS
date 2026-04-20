@@ -274,7 +274,16 @@ snake_case, при котором несколько слов разделяют
 // console.log(count(str, ch));
 
 /* 20. Напишите функцию strip(str), которая удаляет все лишние пробелы из строки str. */
-const strip = str => str.split(/\s+/).join(" ");
+// const strip = str => str.split(/\s+/).join(" ");
 
-const str = "I'm  not  just a  coder,    I'm  a software      engineer.";
-console.log(strip(str));
+// const str = "I'm  not  just a  coder,    I'm  a software      engineer.";
+// console.log(strip(str));
+
+/* 21. Напишите функцию cutString(str, n), которая удаляет лишние слова из строки str, оставив в ней n слов. */
+const cutString = (str, n) => str.split(/\s+/).slice(0, n).join(" ");
+
+const str =
+  "AI won’t replace all programmers. Programmers who use AI will replace those who don’t.";
+const n = 5;
+
+console.log(cutString(str, n));
