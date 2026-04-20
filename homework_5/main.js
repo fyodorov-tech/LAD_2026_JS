@@ -252,10 +252,23 @@ snake_case, при котором несколько слов разделяют
 /* 18. Напишите функцию limitStr(str, n, symb), которая обрезает
 строку, если она длиннее указанного количества символов n.
 Усеченная строка должна заканчиваться троеточием «...» (если не задан параметр symb) или заданным символом symb. */
-const limitStr = (str, n, symb = "...") => {
-  return str.length > n ? str.slice(0, n) + symb : str;
+// const limitStr = (str, n, symb = "...") => {
+//   return str.length > n ? str.slice(0, n) + symb : str;
+// };
+
+// const str = "404: Motivation not found";
+
+// console.log(limitStr(str, 25));
+
+/* 19. Напишите функцию count(str, stringsearch), которая возвращает количество символов stringsearch в строке str. */
+const count = (str, stringSearch) => {
+  //Привожу к единому регистру, чтобы искать символ независимо от регистра
+  const lowStr = str.toLowerCase();
+  const lowCh = stringSearch.toLowerCase();
+
+  return lowStr.split("").filter(ch => ch === lowCh).length;
 };
 
-const str = "404: Motivation not found";
-
-console.log(limitStr(str, 25));
+const str = "Junior Full-stack Developer";
+const ch = "e";
+console.log(count(str, ch));
