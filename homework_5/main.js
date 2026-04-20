@@ -187,7 +187,7 @@ snake_case, при котором несколько слов разделяют
 //   return result;
 // };
 
-// const str = "Hello world!";
+// const str = "Stop ageism!";
 // console.log(repeatStr(str, 5));
 
 /* 14. Напишите функцию path(pathname), которая возвращает
@@ -242,9 +242,20 @@ snake_case, при котором несколько слов разделяют
 /* 17. Напишите функцию insert(str, substr, pos), которая вставляет
 подстроку substr в указанную позицию pos строки str. По
 умолчанию подстрока вставляется в начало строки. */
-const insert = (str, substr, pos = 0) =>
-  str.slice(0, pos) + substr + str.slice(pos);
+// const insert = (str, substr, pos = 0) =>
+//   str.slice(0, pos) + substr + str.slice(pos);
 
-const str = "It is hard to learn JS";
-const substr = " really";
-console.log(insert(str, substr, 5));
+// const str = "It is hard to learn JS";
+// const substr = " really";
+// console.log(insert(str, substr, 5));
+
+/* 18. Напишите функцию limitStr(str, n, symb), которая обрезает
+строку, если она длиннее указанного количества символов n.
+Усеченная строка должна заканчиваться троеточием «...» (если не задан параметр symb) или заданным символом symb. */
+const limitStr = (str, n, symb = "...") => {
+  return str.length > n ? str.slice(0, n) + symb : str;
+};
+
+const str = "404: Motivation not found";
+
+console.log(limitStr(str, 25));
