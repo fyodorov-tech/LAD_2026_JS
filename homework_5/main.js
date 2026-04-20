@@ -222,7 +222,7 @@ snake_case, при котором несколько слов разделяют
 //   return str.slice(-str1.length) === str1;
 // };
 
-// const str = "I`m really tired";
+// const str = "I'm really tired";
 // const str1 = "tired";
 
 // console.log(endWith(str, str1));
@@ -261,14 +261,20 @@ snake_case, при котором несколько слов разделяют
 // console.log(limitStr(str, 25));
 
 /* 19. Напишите функцию count(str, stringsearch), которая возвращает количество символов stringsearch в строке str. */
-const count = (str, stringSearch) => {
-  //Привожу к единому регистру, чтобы искать символ независимо от регистра
-  const lowStr = str.toLowerCase();
-  const lowCh = stringSearch.toLowerCase();
+// const count = (str, stringSearch) => {
+//   //Привожу к единому регистру, чтобы искать символ независимо от регистра
+//   const lowStr = str.toLowerCase();
+//   const lowCh = stringSearch.toLowerCase();
 
-  return lowStr.split("").filter(ch => ch === lowCh).length;
-};
+//   return lowStr.split("").filter(ch => ch === lowCh).length;
+// };
 
-const str = "Junior Full-stack Developer";
-const ch = "e";
-console.log(count(str, ch));
+// const str = "Junior Full-stack Developer";
+// const ch = "e";
+// console.log(count(str, ch));
+
+/* 20. Напишите функцию strip(str), которая удаляет все лишние пробелы из строки str. */
+const strip = str => str.split(/\s+/).join(" ");
+
+const str = "I'm  not  just a  coder,    I'm  a software      engineer.";
+console.log(strip(str));
