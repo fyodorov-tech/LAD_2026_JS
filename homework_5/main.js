@@ -1,7 +1,7 @@
 /* 1. Преобразовать строку в массив слов. Напишите функцию stringToarray(str), которая преобразует строку в массив слов. */
-// const stringToArray = str => str.split(" ");
-// const wordsArray = stringToArray("Welcome to Lad-academy!!!");
-// console.log(wordsArray);
+const stringToArray = str => str.split(" ");
+const wordsArray = stringToArray("Welcome to Lad-academy!!!");
+console.log(wordsArray);
 
 /* 2. Напишите функцию deleteСharacters(str, length), которая возвращает подстроку, состоящую из указанного количества символов. */
 // const deleteCharacters = (str, length) => str.substr(0, length);
@@ -289,14 +289,14 @@ snake_case, при котором несколько слов разделяют
 // console.log(cutString(str, n));
 
 /* 22. Напишите функцию findWord(word, str), которая проверяет, существует ли в строке str слова word. */
-const findWord = (word, str) => {
-  //Привожу к единому регистру, чтобы искать слово независимо от регистра
-  const lowWord = word.toLowerCase();
-  const lowStr = str.toLowerCase();
+// const findWord = (word, str) => {
+//   //Привожу к единому регистру, чтобы искать слово независимо от регистра
+//   const lowWord = word.toLowerCase();
+//   const lowStr = str.toLowerCase();
 
-  return lowStr.split(/[.,!? ]+/).includes(lowWord);
-};
+//   return lowStr.split(/[.,!? ]+/).includes(lowWord);
+// };
 
-const searchWord = "code";
-const str = '"Talk is cheap. Show me the code." Linus Torvalds';
-console.log(findWord(searchWord, str));
+// const searchWord = "code";
+// const str = '"Talk is cheap. Show me the code." Linus Torvalds';
+// console.log(findWord(searchWord, str));
