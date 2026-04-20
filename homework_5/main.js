@@ -218,11 +218,23 @@ snake_case, при котором несколько слов разделяют
 /* 15. Создайте функцию endsWith(), который сравнивает
 подстроку str1 с окончанием исходной строки str и определяет
 заканчивается ли строка символами подстроки. */
-const endWith = (str, str1) => {
-  return str.slice(-str1.length) === str1;
+// const endWith = (str, str1) => {
+//   return str.slice(-str1.length) === str1;
+// };
+
+// const str = "I`m really tired";
+// const str1 = "tired";
+
+// console.log(endWith(str, str1));
+
+/* 16. Напишите функцию getSubstr(str, char, pos), которая
+возвращает часть строки, расположенную после или до
+указанного символа char в зависимости от параметра pos. */
+const getSubstr = (str, char, pos) => {
+  const charIndex = str.toLowerCase().indexOf(char.toLowerCase());
+  return pos >= 0 ? str.slice(charIndex + 1) : str.slice(0, charIndex);
 };
 
-const str = "I`m really tired";
-const str1 = "tired";
-
-console.log(endWith(str, str1));
+const str = "Single Responsibility Principle";
+const ch = "p";
+console.log(getSubstr(str, ch, 1));
