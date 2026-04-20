@@ -280,10 +280,23 @@ snake_case, при котором несколько слов разделяют
 // console.log(strip(str));
 
 /* 21. Напишите функцию cutString(str, n), которая удаляет лишние слова из строки str, оставив в ней n слов. */
-const cutString = (str, n) => str.split(/\s+/).slice(0, n).join(" ");
+// const cutString = (str, n) => str.split(/\s+/).slice(0, n).join(" ");
 
-const str =
-  "AI won’t replace all programmers. Programmers who use AI will replace those who don’t.";
-const n = 5;
+// const str =
+//   "AI won’t replace all programmers. Programmers who use AI will replace those who don’t.";
+// const n = 5;
 
-console.log(cutString(str, n));
+// console.log(cutString(str, n));
+
+/* 22. Напишите функцию findWord(word, str), которая проверяет, существует ли в строке str слова word. */
+const findWord = (word, str) => {
+  //Привожу к единому регистру, чтобы искать слово независимо от регистра
+  const lowWord = word.toLowerCase();
+  const lowStr = str.toLowerCase();
+
+  return lowStr.split(/[.,!? ]+/).includes(lowWord);
+};
+
+const searchWord = "code";
+const str = '"Talk is cheap. Show me the code." Linus Torvalds';
+console.log(findWord(searchWord, str));
