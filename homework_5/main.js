@@ -200,17 +200,29 @@ snake_case, при котором несколько слов разделяют
 // console.log(path(filePath));
 
 /* Вариант 2 */
-const path = pathName => {
-  let result = "";
+// const path = pathName => {
+//   let result = "";
 
-  for (let i = pathName.length - 1; i >= 0; i--) {
-    if (pathName[i] === "\\") {
-      break;
-    }
-    result = pathName[i] + result;
-  }
-  return result;
+//   for (let i = pathName.length - 1; i >= 0; i--) {
+//     if (pathName[i] === "\\") {
+//       break;
+//     }
+//     result = pathName[i] + result;
+//   }
+//   return result;
+// };
+
+// const filePath = "C:\\Users\\User\\Desktop\\file.txt";
+// console.log(path(filePath));
+
+/* 15. Создайте функцию endsWith(), который сравнивает
+подстроку str1 с окончанием исходной строки str и определяет
+заканчивается ли строка символами подстроки. */
+const endWith = (str, str1) => {
+  return str.slice(-str1.length) === str1;
 };
 
-const filePath = "C:\\Users\\User\\Desktop\\file.txt";
-console.log(path(filePath));
+const str = "I`m really tired";
+const str1 = "tired";
+
+console.log(endWith(str, str1));
