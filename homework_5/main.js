@@ -230,11 +230,21 @@ snake_case, при котором несколько слов разделяют
 /* 16. Напишите функцию getSubstr(str, char, pos), которая
 возвращает часть строки, расположенную после или до
 указанного символа char в зависимости от параметра pos. */
-const getSubstr = (str, char, pos) => {
-  const charIndex = str.toLowerCase().indexOf(char.toLowerCase());
-  return pos >= 0 ? str.slice(charIndex + 1) : str.slice(0, charIndex);
-};
+// const getSubstr = (str, char, pos) => {
+//   const charIndex = str.toLowerCase().indexOf(char.toLowerCase());
+//   return pos >= 0 ? str.slice(charIndex + 1) : str.slice(0, charIndex);
+// };
 
-const str = "Single Responsibility Principle";
-const ch = "p";
-console.log(getSubstr(str, ch, 1));
+// const str = "Single Responsibility Principle";
+// const ch = "p";
+// console.log(getSubstr(str, ch, 1));
+
+/* 17. Напишите функцию insert(str, substr, pos), которая вставляет
+подстроку substr в указанную позицию pos строки str. По
+умолчанию подстрока вставляется в начало строки. */
+const insert = (str, substr, pos = 0) =>
+  str.slice(0, pos) + substr + str.slice(pos);
+
+const str = "It is hard to learn JS";
+const substr = " really";
+console.log(insert(str, substr, 5));
