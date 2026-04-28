@@ -15,25 +15,32 @@
 // console.log(currentSums(numbers));
 
 /* 3. Напишите код, который получает из массива чисел новый массив, содержащий пары чисел, которые в сумме должны быть равны семи: (0:7), (1:6) и т.д. */
-const getEqualsSeven = arr => {
-  arr.sort((a, b) => a - b);
+// const getEqualsSeven = arr => {
+//   arr.sort((a, b) => a - b);
 
-  let includedNumbers = [];
-  let resultArr = [];
+//   let includedNumbers = [];
+//   let resultArr = [];
 
-  for (const el of arr) {
-    if (
-      arr.includes(7 - el) &&
-      !includedNumbers.includes(el) &&
-      !includedNumbers.includes(7 - el)
-    ) {
-      includedNumbers.push(el, 7 - el);
-      resultArr.push(`(${el}:${7 - el})`);
-    }
-  }
+//   for (const el of arr) {
+//     if (
+//       arr.includes(7 - el) &&
+//       !includedNumbers.includes(el) &&
+//       !includedNumbers.includes(7 - el)
+//     ) {
+//       includedNumbers.push(el, 7 - el);
+//       resultArr.push(`(${el}:${7 - el})`);
+//     }
+//   }
 
-  return resultArr;
-};
+//   return resultArr;
+// };
 
-const numbers = [0, 1, 2, 3, 4, 5, 6, 7];
-console.log(getEqualsSeven(numbers));
+// const numbers = [0, 1, 2, 3, 4, 5, 6, 7];
+// console.log(getEqualsSeven(numbers));
+
+/* 4. Напишите код, создающий массив, который будет состоять из первых букв слов строки str. */
+const getFirstChars = str => str.split(/\s+/).map(word => word[0]);
+
+const str =
+  "Напишите код, создающий массив, который будет состоять из первых букв слов строки str";
+console.log(getFirstChars(str));
