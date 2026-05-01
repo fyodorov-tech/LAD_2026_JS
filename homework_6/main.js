@@ -129,6 +129,38 @@
 // console.log(arrayFill("x", 5));
 
 /* Вариант 2 */
-const arrayFill = (value, length) => new Array(length).fill(value);
+// const arrayFill = (value, length) => new Array(length).fill(value);
 
-console.log(arrayFill("x", 5));
+// console.log(arrayFill("x", 5));
+
+/* Из презентации: */
+/* 1. Написать функцию которая будет принимать два массива, и будет сравнивать их, если они идентичны (элементы совпадают по значению и по индексу) то функция возвращает true, в противном случае false. */
+/* Вариант 1 */
+// const equals = (firstArr, secondArr) => {
+//   if (firstArr.length != secondArr.length) {
+//     return false;
+//   }
+
+//   for (let i = 0; i < firstArr.length; i++) {
+//     if (firstArr[i] !== secondArr[i]) {
+//       return false;
+//     }
+//   }
+
+//   return true;
+// };
+
+// const firstArr = [4, 22, 31, -8, 13, 1];
+// const secondArr = [4, 22, 31, -8, 13, 1];
+
+// console.log(equals(firstArr, secondArr));
+
+/* Вариант 2 посмотрел в нейронке, так как посчитал своё решение громоздким */
+const equals = (firstArr, secondArr) =>
+  firstArr.length === secondArr.length &&
+  firstArr.every((value, i) => value === secondArr[i]);
+
+const firstArr = [4, 22, 31, -8, 13, 1];
+const secondArr = [4, 22, 31, -8, 13, 1];
+
+console.log(equals(firstArr, secondArr));
