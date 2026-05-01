@@ -46,21 +46,31 @@
 // console.log(getFirstChars(str));
 
 /* 5. Напишите код, создающий массив, который будет состоять из строк, состоящих из предыдущего, текущего и следующего символа строки str. */
-const getArr = str => {
-  let arr = [];
+// const getArr = str => {
+//   let arr = [];
 
-  for (let i = 1; i < str.length - 1; i++) {
-    arr.push(str[i - 1] + str[i] + str[i + 1]);
-  }
+//   for (let i = 1; i < str.length - 1; i++) {
+//     arr.push(str[i - 1] + str[i] + str[i + 1]);
+//   }
 
-  return arr;
-};
+//   return arr;
+// };
 
-const str = "abcdef";
-console.log(getArr(str));
+// const str = "abcdef";
+// console.log(getArr(str));
 
 /* 6. Напишите код, преобразующий массив цифр, которые располагаются неупорядоченно, в массив цифр расположенных по убыванию их значений. */
-const orderByDesc = arr => arr.sort((a, b) => b - a);
+// const orderByDesc = arr => arr.sort((a, b) => b - a);
 
-const numbers = [22, 4, 31, -8, 13, 1];
-console.log(orderByDesc(numbers));
+// const numbers = [22, 4, 31, -8, 13, 1];
+// console.log(orderByDesc(numbers));
+
+/* 7. Напишите код, объединяющий три массива цифр, и располагающий цифры, в полученном массиве, в порядке убывания их значений через пробел. */
+const getOrderedDescStr = (firstArr, secondArr, thirdArr) =>
+  [...firstArr, ...secondArr, ...thirdArr].sort((a, b) => b - a).join(" ");
+
+const firstArr = [22, 4, 31, -8, 13, 1];
+const secondArr = [81, -1, -9, 9, 15];
+const thirdArr = [-99, 0, -18, -28, 70];
+
+console.log(getOrderedDescStr(firstArr, secondArr, thirdArr));
