@@ -1,8 +1,8 @@
 /* 1. Используя метод map() напишите код, который получает из массива строк новый массив, содержащий их длины. */
-// const getLength = arr => arr.map(e => e.length);
+const getLength = arr => arr.map(e => e.length);
 
-// const myArray = ["backend", "frontend", "mobile", "game"];
-// console.log(getLength(myArray));
+const myArray = ["backend", "frontend", "mobile", "game"];
+console.log(getLength(myArray));
 
 /* 2. Имеется массив простых чисел: numbers = [2, 3, 5, 7, 11, 13, 17, 19]. Использую метод reduce() напишите функцию currentSums(numbers), которая возвращает новый массив из такого же числа элементов, в котором на каждой позиции будет находиться сумма элементов массива numbers до этой позиции включительно. */
 // const currentSums = arr =>
@@ -181,18 +181,18 @@
 // console.log(sumEven(4, 22, 31, 8, 13, 1));
 
 /* 3. Написать функцию которая будет принимать два массива, и в качестве результата будет возвращать только те значения которые есть и в первом и во втором массиве. */
-const getCommon = (firstArr, secondArr) => {
-  const commonArr = [];
+// const getCommon = (firstArr, secondArr) => {
+//   const commonArr = [];
 
-  firstArr.forEach(el => {
-    if (secondArr.includes(el)) {
-      commonArr.push(el);
-    }
-  });
+//   firstArr.forEach(el => {
+//     if (secondArr.includes(el)) {
+//       commonArr.push(el);
+//     }
+//   });
 
-  return commonArr;
-};
+//   return commonArr;
+// };
 
-const firstArr = [4, 22, 31, -8, 13, 1];
-const secondArr = [-8, 77, 12, 4, 32, 1, 11, 3];
-console.log(getCommon(firstArr, secondArr));
+// const firstArr = [4, 22, 31, -8, 13, 1];
+// const secondArr = [-8, 77, 12, 4, 32, 1, 11, 3];
+// console.log(getCommon(firstArr, secondArr));
