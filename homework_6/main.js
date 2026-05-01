@@ -39,8 +39,22 @@
 // console.log(getEqualsSeven(numbers));
 
 /* 4. Напишите код, создающий массив, который будет состоять из первых букв слов строки str. */
-const getFirstChars = str => str.split(/\s+/).map(word => word[0]);
+// const getFirstChars = str => str.split(/\s+/).map(word => word[0]);
 
-const str =
-  "Напишите код, создающий массив, который будет состоять из первых букв слов строки str";
-console.log(getFirstChars(str));
+// const str =
+//   "Напишите код, создающий массив, который будет состоять из первых букв слов строки str";
+// console.log(getFirstChars(str));
+
+/* 5. Напишите код, создающий массив, который будет состоять из строк, состоящих из предыдущего, текущего и следующего символа строки str. */
+const getArr = str => {
+  let arr = [];
+
+  for (let i = 1; i < str.length - 1; i++) {
+    arr.push(str[i - 1] + str[i] + str[i + 1]);
+  }
+
+  return arr;
+};
+
+const str = "abcdef";
+console.log(getArr(str));
