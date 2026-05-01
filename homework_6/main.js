@@ -166,16 +166,33 @@
 // console.log(equals(firstArr, secondArr));
 
 /* 2. Написать функцию которая будет принимать n-ое количество аргументов, в качестве результата функция будет возвращать сумму всех четных элементов. Для решения использовать цикл for (... of …). */
-const sumEven = (...numbers) => {
-  let sum = 0;
+// const sumEven = (...numbers) => {
+//   let sum = 0;
 
-  for (const number of numbers) {
-    if (number % 2 === 0) {
-      sum += number;
+//   for (const number of numbers) {
+//     if (number % 2 === 0) {
+//       sum += number;
+//     }
+//   }
+
+//   return sum;
+// };
+
+// console.log(sumEven(4, 22, 31, 8, 13, 1));
+
+/* 3. Написать функцию которая будет принимать два массива, и в качестве результата будет возвращать только те значения которые есть и в первом и во втором массиве. */
+const getCommon = (firstArr, secondArr) => {
+  const commonArr = [];
+
+  firstArr.forEach(el => {
+    if (secondArr.includes(el)) {
+      commonArr.push(el);
     }
-  }
+  });
 
-  return sum;
+  return commonArr;
 };
 
-console.log(sumEven(4, 22, 31, 8, 13, 1));
+const firstArr = [4, 22, 31, -8, 13, 1];
+const secondArr = [-8, 77, 12, 4, 32, 1, 11, 3];
+console.log(getCommon(firstArr, secondArr));
