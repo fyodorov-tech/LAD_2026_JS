@@ -76,7 +76,20 @@
 // console.log(getOrderedDescStr(firstArr, secondArr, thirdArr));
 
 /* 8. Дан двухмерный массив с числами, например [[1, 2, 3], [4, 5], [6]]. Найдите сумму элементов этого массива. Массив, конечно же, может быть произвольным. */
-const sumArr = arr => arr.flat().reduce((acc, cur) => acc + cur, 0);
+// const sumArr = arr => arr.flat().reduce((acc, cur) => acc + cur, 0);
 
-const arr = [[1, 2, 3], [4, 5], [6]];
-console.log(sumArr(arr));
+// const arr = [[1, 2, 3], [4, 5], [6]];
+// console.log(sumArr(arr));
+
+/* 9. Дан массив с числами. Не используя метода reverse переверните его элементы в обратном порядке. */
+const reverseArr = arr => {
+  const reversedArr = [];
+
+  for (let i = arr.length - 1; i >= 0; i--) {
+    reversedArr.push(arr[i]);
+  }
+  return reversedArr;
+};
+
+const arr = [22, 4, 31, -8, 13, 1];
+console.log(reverseArr(arr));
