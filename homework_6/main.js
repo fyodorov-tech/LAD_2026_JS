@@ -58,3 +58,9 @@ const getArr = str => {
 
 const str = "abcdef";
 console.log(getArr(str));
+
+/* 6. Напишите код, преобразующий массив цифр, которые располагаются неупорядоченно, в массив цифр расположенных по убыванию их значений. */
+const orderByDesc = arr => arr.sort((a, b) => b - a);
+
+const numbers = [22, 4, 31, -8, 13, 1];
+console.log(orderByDesc(numbers));
