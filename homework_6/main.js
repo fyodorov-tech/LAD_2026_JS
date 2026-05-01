@@ -82,14 +82,35 @@
 // console.log(sumArr(arr));
 
 /* 9. Дан массив с числами. Не используя метода reverse переверните его элементы в обратном порядке. */
-const reverseArr = arr => {
-  const reversedArr = [];
+// const reverseArr = arr => {
+//   const reversedArr = [];
 
-  for (let i = arr.length - 1; i >= 0; i--) {
-    reversedArr.push(arr[i]);
+//   for (let i = arr.length - 1; i >= 0; i--) {
+//     reversedArr.push(arr[i]);
+//   }
+//   return reversedArr;
+// };
+
+// const arr = [22, 4, 31, -8, 13, 1];
+// console.log(reverseArr(arr));
+
+/* 10. Дан массив с числами. Узнайте сколько элементов с начала массива надо сложить, чтобы в сумме получилось больше 10-ти. */
+const countSumMoreTen = arr => {
+  //Можно через reduce, но он не позволяет прервать выполнение, поэтому цикл может быть эффективнее
+  let count = 0;
+  let sum = 0;
+
+  for (const el of arr) {
+    count++;
+    sum += el;
+
+    if (sum > 10) {
+      return count;
+    }
   }
-  return reversedArr;
+
+  return count;
 };
 
-const arr = [22, 4, 31, -8, 13, 1];
-console.log(reverseArr(arr));
+const numbers = [4, 22, 31, -8, 13, 1];
+console.log(countSumMoreTen(numbers));
