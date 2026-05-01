@@ -66,11 +66,17 @@
 // console.log(orderByDesc(numbers));
 
 /* 7. Напишите код, объединяющий три массива цифр, и располагающий цифры, в полученном массиве, в порядке убывания их значений через пробел. */
-const getOrderedDescStr = (firstArr, secondArr, thirdArr) =>
-  [...firstArr, ...secondArr, ...thirdArr].sort((a, b) => b - a).join(" ");
+// const getOrderedDescStr = (firstArr, secondArr, thirdArr) =>
+//   [...firstArr, ...secondArr, ...thirdArr].sort((a, b) => b - a).join(" ");
 
-const firstArr = [22, 4, 31, -8, 13, 1];
-const secondArr = [81, -1, -9, 9, 15];
-const thirdArr = [-99, 0, -18, -28, 70];
+// const firstArr = [22, 4, 31, -8, 13, 1];
+// const secondArr = [81, -1, -9, 9, 15];
+// const thirdArr = [-99, 0, -18, -28, 70];
 
-console.log(getOrderedDescStr(firstArr, secondArr, thirdArr));
+// console.log(getOrderedDescStr(firstArr, secondArr, thirdArr));
+
+/* 8. Дан двухмерный массив с числами, например [[1, 2, 3], [4, 5], [6]]. Найдите сумму элементов этого массива. Массив, конечно же, может быть произвольным. */
+const sumArr = arr => arr.flat().reduce((acc, cur) => acc + cur, 0);
+
+const arr = [[1, 2, 3], [4, 5], [6]];
+console.log(sumArr(arr));
