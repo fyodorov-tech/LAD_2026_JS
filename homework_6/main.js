@@ -95,22 +95,40 @@
 // console.log(reverseArr(arr));
 
 /* 10. Дан массив с числами. Узнайте сколько элементов с начала массива надо сложить, чтобы в сумме получилось больше 10-ти. */
-const countSumMoreTen = arr => {
-  //Можно через reduce, но он не позволяет прервать выполнение, поэтому цикл может быть эффективнее
-  let count = 0;
-  let sum = 0;
+// const countSumMoreTen = arr => {
+//   //Можно через reduce, но он не позволяет прервать выполнение, поэтому цикл может быть эффективнее
+//   let count = 0;
+//   let sum = 0;
 
-  for (const el of arr) {
-    count++;
-    sum += el;
+//   for (const el of arr) {
+//     count++;
+//     sum += el;
 
-    if (sum > 10) {
-      return count;
-    }
-  }
+//     if (sum > 10) {
+//       return count;
+//     }
+//   }
 
-  return count;
-};
+//   return count;
+// };
 
-const numbers = [4, 22, 31, -8, 13, 1];
-console.log(countSumMoreTen(numbers));
+// const numbers = [4, 22, 31, -8, 13, 1];
+// console.log(countSumMoreTen(numbers));
+
+/* 11. Напишите функцию arrayFill, которая будет заполнять массив заданными значениями. Первым параметром функция принимает значение, которым заполнять массив, а вторым - сколько элементов должно быть в массиве. Пример: arrayFill('x', 5) сделает массив ['x', 'x', 'x', 'x', 'x']. */
+/* Вариант 1 */
+// const arrayFill = (value, length) => {
+//   const arr = [];
+
+//   for (let i = 0; i < length; i++) {
+//     arr.push(value);
+//   }
+//   return arr;
+// };
+
+// console.log(arrayFill("x", 5));
+
+/* Вариант 2 */
+const arrayFill = (value, length) => new Array(length).fill(value);
+
+console.log(arrayFill("x", 5));
