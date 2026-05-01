@@ -156,11 +156,26 @@
 // console.log(equals(firstArr, secondArr));
 
 /* Вариант 2 посмотрел в нейронке, так как посчитал своё решение громоздким */
-const equals = (firstArr, secondArr) =>
-  firstArr.length === secondArr.length &&
-  firstArr.every((value, i) => value === secondArr[i]);
+// const equals = (firstArr, secondArr) =>
+//   firstArr.length === secondArr.length &&
+//   firstArr.every((value, i) => value === secondArr[i]);
 
-const firstArr = [4, 22, 31, -8, 13, 1];
-const secondArr = [4, 22, 31, -8, 13, 1];
+// const firstArr = [4, 22, 31, -8, 13, 1];
+// const secondArr = [4, 22, 31, -8, 13, 1];
 
-console.log(equals(firstArr, secondArr));
+// console.log(equals(firstArr, secondArr));
+
+/* 2. Написать функцию которая будет принимать n-ое количество аргументов, в качестве результата функция будет возвращать сумму всех четных элементов. Для решения использовать цикл for (... of …). */
+const sumEven = (...numbers) => {
+  let sum = 0;
+
+  for (const number of numbers) {
+    if (number % 2 === 0) {
+      sum += number;
+    }
+  }
+
+  return sum;
+};
+
+console.log(sumEven(4, 22, 31, 8, 13, 1));
