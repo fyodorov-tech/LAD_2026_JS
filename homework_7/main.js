@@ -71,13 +71,18 @@ askPassword(user.loginOk.bind(user), user.loginFail.bind(user));
 
 /* 6. Напишите в указанном месте конструкцию с методом bind() так, чтобы this внутри функции func всегда указывал на value.
 из переменной elem. */
-const elem = { value: "Привет" };
+// const elem = { value: "Привет" };
 
-function func(surname, name) {
-  alert(this.value + ", " + surname + " " + name);
-}
+// function func(surname, name) {
+//   alert(this.value + ", " + surname + " " + name);
+// }
 
-func = func.bind(elem);
-//Тут напишите конструкцию с bind()
-func("Иванов", "Иван"); //тут должно вывести 'привет, Иванов Иван'
-func("Петров", "Петр"); //тут должно вывести 'привет, Петров Петр'
+// func = func.bind(elem);
+// //Тут напишите конструкцию с bind()
+// func("Иванов", "Иван"); //тут должно вывести 'привет, Иванов Иван'
+// func("Петров", "Петр"); //тут должно вывести 'привет, Петров Петр'
+
+/* 7. Есть функция которая складывает три числа.Выполните каррирование.
+const sum = (a, b, c) => a + b + c */
+const sum = a => b => c => a + b + c;
+alert(sum(4)(5)(6));
