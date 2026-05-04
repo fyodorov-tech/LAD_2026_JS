@@ -54,17 +54,30 @@ askPassword(user.loginOk.bind(user), user.loginFail.bind(user));
 
 /* 5. Объект user был изменён. Теперь вместо двух функций loginOk/loginFail у него есть только одна – user.login(true/false).
 Что нужно передать в вызов функции askPassword в коде ниже, чтобы она могла вызывать функцию user.login(true) как ok и функцию user.login(false) как fail? */
-function askPassword(ok, fail) {
-  let password = prompt("Password?", "");
-  if (password == "rockstar") ok();
-  else fail();
-}
-let user = {
-  name: "John",
-  login(result) {
-    alert(this.name + (result ? " logged in" : " failed to log in"));
-  },
-};
+// function askPassword(ok, fail) {
+//   let password = prompt("Password?", "");
+//   if (password == "rockstar") ok();
+//   else fail();
+// }
+// let user = {
+//   name: "John",
+//   login(result) {
+//     alert(this.name + (result ? " logged in" : " failed to log in"));
+//   },
+// };
 
-/* Ответ */
-askPassword(user.login.bind(user, true), user.login.bind(user, false));
+// /* Ответ */
+// askPassword(user.login.bind(user, true), user.login.bind(user, false));
+
+/* 6. Напишите в указанном месте конструкцию с методом bind() так, чтобы this внутри функции func всегда указывал на value.
+из переменной elem. */
+const elem = { value: "Привет" };
+
+function func(surname, name) {
+  alert(this.value + ", " + surname + " " + name);
+}
+
+func = func.bind(elem);
+//Тут напишите конструкцию с bind()
+func("Иванов", "Иван"); //тут должно вывести 'привет, Иванов Иван'
+func("Петров", "Петр"); //тут должно вывести 'привет, Петров Петр'
