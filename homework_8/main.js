@@ -174,34 +174,74 @@
 // console.log(result);
 
 /* 5. Реализуйте класс Validator, который будет проверять строки. К примеру, у него будет метод isEmail параметром принимает строку и проверяет, является ли она корректным емейлом или нет. Если является - возвращает true, если не является - то false. Кроме того, класс будет иметь следующие методы: метод isDomain для проверки домена, метод isDate для проверки даты и метод isPhone для проверки телефона. */
-class Validator {
-  static isEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.(ru|com|net|org)$/.test(email);
+// class Validator {
+//   static isEmail(email) {
+//     return /^[^\s@]+@[^\s@]+\.(ru|com|net|org)$/.test(email);
+//   }
+
+//   static isDomain(domain) {
+//     return /^[A-Za-z0-9-]+\.(ru|com|net|org)$/.test(domain);
+//   }
+
+//   static isDate(date) {
+//     return /^\d{2}\.\d{2}\.\d{4}$/.test(date);
+//   }
+
+//   static isPhone(phone) {
+//     return /^(?:\+?7|8)[\s-]?(?:\(\d{3}\)|\d{3})[\s-]?\d{3}[\s-]?\d{2}[\s-]?\d{2}$/.test(
+//       phone
+//     );
+//   }
+// }
+
+// const email = "fyodorov@email.ru";
+// console.log(Validator.isEmail(email));
+
+// const domain = "amazon.com";
+// console.log(Validator.isDomain(domain));
+
+// const date = "04.09.1990";
+// console.log(Validator.isDate(date));
+
+// const phone = "+7 (923) 375-25-92";
+// console.log(Validator.isPhone(phone));
+
+/* 6. Реализуйте класс Student (Студент), который будет
+наследовать от класса User, подобно тому, как это сделано в
+теоретической части урока. Этот класс должен иметь
+следующие свойства: name (имя, наследуется от User),
+surname (фамилия, наследуется от User), year (год
+поступления в вуз). Класс должен иметь метод getFullName()
+(наследуется от User), с помощью которого можно вывести
+одновременно имя и фамилию студента. Также класс должен
+иметь метод getCourse(), который будет выводить текущий
+курс студента (от 1 до 5). Курс вычисляется так: нужно от
+текущего года отнять год поступления в вуз. Текущий год
+получите самостоятельно с помощью new Date. */
+
+class User {
+  constructor(name, surname, age) {
+    this.name = name;
+    this.surname = surname;
+    this.age = age;
   }
 
-  static isDomain(domain) {
-    return /^[A-Za-z0-9-]+\.(ru|com|net|org)$/.test(domain);
-  }
-
-  static isDate(date) {
-    return /^\d{2}\.\d{2}\.\d{4}$/.test(date);
-  }
-
-  static isPhone(phone) {
-    return /^(?:\+?7|8)[\s-]?(?:\(\d{3}\)|\d{3})[\s-]?\d{3}[\s-]?\d{2}[\s-]?\d{2}$/.test(
-      phone
-    );
+  getFullName() {
+    return `${this.name} ${this.surname}`;
   }
 }
 
-const email = "fyodorov@email.ru";
-console.log(Validator.isEmail(email));
+class Student extends User {
+  constructor(name, surname, age, year) {
+    super(name, surname, age);
+    this.year = year;
+  }
 
-const domain = "amazon.com";
-console.log(Validator.isDomain(domain));
+  getCourse() {
+    return new Date().getFullYear() - this.year;
+  }
+}
 
-const date = "04.09.1990";
-console.log(Validator.isDate(date));
-
-const phone = "+7 (923) 375-25-92";
-console.log(Validator.isPhone(phone));
+const student = new Student("Иван", "Иванов", 20, 2024);
+console.log(student);
+console.log(student.getCourse());
