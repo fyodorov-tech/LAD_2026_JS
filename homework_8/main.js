@@ -46,7 +46,7 @@ console.log(worker.getFullName());
 //   }
 
 //   getSalary() {
-//     return this.rate * this.days * this.workers;
+//     return super.getSalary() * this.workers;
 //   }
 // }
 
