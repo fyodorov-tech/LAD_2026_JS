@@ -1,25 +1,25 @@
 /* 1. Реализуйте класс Worker (Работник), который будет иметь следующие свойства: name (имя), surname (фамилия), rate (ставка за день работы), days (количество отработанных дней). Также класс должен иметь метод getSalary(), который будет выводить зарплату работника. Зарплата - это произведение (умножение) ставки rate на количество отработанных дней days. И метод getFullName() - имя и фамиля работника. */
-// class Worker {
-//   constructor(name, surname, rate, days) {
-//     this.name = name;
-//     this.surname = surname;
-//     this.rate = rate;
-//     this.days = days;
-//   }
+class Worker {
+  constructor(name, surname, rate, days) {
+    this.name = name;
+    this.surname = surname;
+    this.rate = rate;
+    this.days = days;
+  }
 
-//   getSalary() {
-//     return this.rate * this.days; //возвращаю результат, а не вывожу в консоль, так как зависимость от способа вывода информации - это плохая архитектура класса
-//   }
+  getSalary() {
+    return this.rate * this.days; //возвращаю результат, а не вывожу в консоль, так как зависимость от способа вывода информации - это плохая архитектура класса
+  }
 
-//   getFullName() {
-//     return `${this.name} ${this.surname}`;
-//   }
-// }
+  getFullName() {
+    return `${this.name} ${this.surname}`;
+  }
+}
 
-// const worker = new Worker("Дмитрий", "Фёдоров", 5000, 22);
-// console.log(worker);
-// console.log(worker.getSalary());
-// console.log(worker.getFullName());
+const worker = new Worker("Дмитрий", "Фёдоров", 5000, 22);
+console.log(worker);
+console.log(worker.getSalary());
+console.log(worker.getFullName());
 
 /* 2. Напишите новый класс Boss, этот класс наследуется от класса Worker и прошлого задания. Появляется новые свойство: workers - количество работников. И зарплата считается по другому: произведение (умножение) ставки rate на количество отработанных дней и на количество работников. */
 // class Worker {
@@ -219,29 +219,29 @@ surname (фамилия, наследуется от User), year (год
 текущего года отнять год поступления в вуз. Текущий год
 получите самостоятельно с помощью new Date. */
 
-class User {
-  constructor(name, surname, age) {
-    this.name = name;
-    this.surname = surname;
-    this.age = age;
-  }
+// class User {
+//   constructor(name, surname, age) {
+//     this.name = name;
+//     this.surname = surname;
+//     this.age = age;
+//   }
 
-  getFullName() {
-    return `${this.name} ${this.surname}`;
-  }
-}
+//   getFullName() {
+//     return `${this.name} ${this.surname}`;
+//   }
+// }
 
-class Student extends User {
-  constructor(name, surname, age, year) {
-    super(name, surname, age);
-    this.year = year;
-  }
+// class Student extends User {
+//   constructor(name, surname, age, year) {
+//     super(name, surname, age);
+//     this.year = year;
+//   }
 
-  getCourse() {
-    return new Date().getFullYear() - this.year;
-  }
-}
+//   getCourse() {
+//     return new Date().getFullYear() - this.year;
+//   }
+// }
 
-const student = new Student("Иван", "Иванов", 20, 2024);
-console.log(student);
-console.log(student.getCourse());
+// const student = new Student("Иван", "Иванов", 20, 2024);
+// console.log(student);
+// console.log(student.getCourse());
