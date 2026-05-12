@@ -100,47 +100,75 @@
 // console.log(worker.getSalary());
 
 /* Варинт 2 */
-class Worker {
-  #rate;
-  #days;
+// class Worker {
+//   #rate;
+//   #days;
 
-  constructor(name, surname, rate, days) {
-    this.name = name;
-    this.surname = surname;
-    this.#rate = rate;
-    this.#days = days;
+//   constructor(name, surname, rate, days) {
+//     this.name = name;
+//     this.surname = surname;
+//     this.#rate = rate;
+//     this.#days = days;
+//   }
+
+//   get rate() {
+//     return this.#rate;
+//   }
+
+//   set rate(value) {
+//     this.#rate = value;
+//   }
+
+//   get days() {
+//     return this.#days;
+//   }
+
+//   set days(value) {
+//     this.#days = value;
+//   }
+
+//   getSalary() {
+//     return this.#rate * this.#days;
+//   }
+
+//   getFullName() {
+//     return `${this.name} ${this.surname}`;
+//   }
+// }
+
+// const worker = new Worker("Дмитрий", "Фёдоров", 5000, 22);
+// worker.rate = 6000;
+// worker.days = 23;
+// console.log(worker.getFullName());
+// console.log(worker.rate);
+// console.log(worker.days);
+// console.log(worker.getSalary());
+// console.log(worker);
+
+/* 4. Реализуйте класс MyString, который будет иметь следующие методы: метод reverse(), который параметром принимает строку, а возвращает ее в перевернутом виде, метод ucFirst(), который параметром принимает строку, а возвращает эту же строку, сделав ее первую букву заглавной и метод ucWords, который принимает строку и делает заглавной первую букву каждого слова этой строки. */
+class MyString {
+  static reverse(str) {
+    return str.split("").reverse().join("");
   }
 
-  get rate() {
-    return this.#rate;
+  static ucFirst(str) {
+    return str[0].toUpperCase() + str.slice(1);
   }
 
-  set rate(value) {
-    this.#rate = value;
-  }
-
-  get days() {
-    return this.#days;
-  }
-
-  set days(value) {
-    this.#days = value;
-  }
-
-  getSalary() {
-    return this.#rate * this.#days;
-  }
-
-  getFullName() {
-    return `${this.name} ${this.surname}`;
+  static ucWords(str) {
+    return str
+      .split(" ")
+      .map(x => this.ucFirst(x))
+      .join(" ");
   }
 }
 
-const worker = new Worker("Дмитрий", "Фёдоров", 5000, 22);
-worker.rate = 6000;
-worker.days = 23;
-console.log(worker.getFullName());
-console.log(worker.rate);
-console.log(worker.days);
-console.log(worker.getSalary());
-console.log(worker);
+const str = "добро пожаловать в зомбиленд!";
+let result = MyString.reverse(str);
+console.log(result);
+
+result = MyString.ucFirst(str);
+console.log(result);
+
+result = MyString.ucWords(str);
+console.log(result);
