@@ -146,29 +146,62 @@
 // console.log(worker);
 
 /* 4. Реализуйте класс MyString, который будет иметь следующие методы: метод reverse(), который параметром принимает строку, а возвращает ее в перевернутом виде, метод ucFirst(), который параметром принимает строку, а возвращает эту же строку, сделав ее первую букву заглавной и метод ucWords, который принимает строку и делает заглавной первую букву каждого слова этой строки. */
-class MyString {
-  static reverse(str) {
-    return str.split("").reverse().join("");
+// class MyString {
+//   static reverse(str) {
+//     return str.split("").reverse().join("");
+//   }
+
+//   static ucFirst(str) {
+//     return str[0].toUpperCase() + str.slice(1);
+//   }
+
+//   static ucWords(str) {
+//     return str
+//       .split(" ")
+//       .map(x => this.ucFirst(x))
+//       .join(" ");
+//   }
+// }
+
+// const str = "добро пожаловать в зомбиленд!";
+// let result = MyString.reverse(str);
+// console.log(result);
+
+// result = MyString.ucFirst(str);
+// console.log(result);
+
+// result = MyString.ucWords(str);
+// console.log(result);
+
+/* 5. Реализуйте класс Validator, который будет проверять строки. К примеру, у него будет метод isEmail параметром принимает строку и проверяет, является ли она корректным емейлом или нет. Если является - возвращает true, если не является - то false. Кроме того, класс будет иметь следующие методы: метод isDomain для проверки домена, метод isDate для проверки даты и метод isPhone для проверки телефона. */
+class Validator {
+  static isEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.(ru|com|net|org)$/.test(email);
   }
 
-  static ucFirst(str) {
-    return str[0].toUpperCase() + str.slice(1);
+  static isDomain(domain) {
+    return /^[A-Za-z0-9-]+\.(ru|com|net|org)$/.test(domain);
   }
 
-  static ucWords(str) {
-    return str
-      .split(" ")
-      .map(x => this.ucFirst(x))
-      .join(" ");
+  static isDate(date) {
+    return /^\d{2}\.\d{2}\.\d{4}$/.test(date);
+  }
+
+  static isPhone(phone) {
+    return /^(?:\+?7|8)[\s-]?(?:\(\d{3}\)|\d{3})[\s-]?\d{3}[\s-]?\d{2}[\s-]?\d{2}$/.test(
+      phone
+    );
   }
 }
 
-const str = "добро пожаловать в зомбиленд!";
-let result = MyString.reverse(str);
-console.log(result);
+const email = "fyodorov@email.ru";
+console.log(Validator.isEmail(email));
 
-result = MyString.ucFirst(str);
-console.log(result);
+const domain = "amazon.com";
+console.log(Validator.isDomain(domain));
 
-result = MyString.ucWords(str);
-console.log(result);
+const date = "04.09.1990";
+console.log(Validator.isDate(date));
+
+const phone = "+7 (923) 375-25-92";
+console.log(Validator.isPhone(phone));
