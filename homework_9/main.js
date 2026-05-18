@@ -1,8 +1,3 @@
-/* 1. Создание To Do List - необходимо средствами JS создать страницу на которой будут
-элементы: header содержащий заголовок страницы, контейнер с контентом страницы, поле
-ввода input, список элементов, кнопка добавления To Do (Стили возможно добавлять через
-CSS). */
-
 const tasks = [];
 
 class Task {
@@ -69,27 +64,61 @@ empty.classList.add("todo__empty");
 empty.textContent = "No tasks yet!";
 mainInner.append(empty);
 
-function renderEmptyState(tasks) {
+todoBtn.addEventListener("click", function () {
+  const value = todoInput.value.trim();
+
+  if (value) {
+    const task = new Task(value);
+    addTask(task);
+    render();
+    todoInput.value = "";
+  }
+});
+
+tasksList.addEventListener("click", e => {
+  const li = e.target.closest(".task");
+
+  if (li) {
+    const id = li.dataset.id;
+    removeTask(id);
+    render();
+  }
+});
+
+function addTask(task) {
+  tasks.push(task);
+}
+
+function removeTask(id) {
+  const taskIndex = tasks.findIndex(task => task.id === id);
+
+  if (taskIndex != -1) {
+    tasks.splice(taskIndex, 1);
+  }
+}
+
+function renderEmptyState() {
   const isEmpty = tasks.length === 0;
 
   tasksList.classList.toggle("hidden", isEmpty);
   empty.classList.toggle("hidden", !isEmpty);
 }
 
-function renderTasks(tasks) {
+function renderTasks() {
   tasksList.innerHTML = "";
 
   tasks.forEach(task => {
     const li = document.createElement("li");
     li.classList.add("task");
     li.textContent = task.name;
+    li.dataset.id = task.id;
     tasksList.append(li);
   });
 }
 
-function render(tasks) {
-  renderTasks(tasks);
-  renderEmptyState(tasks);
+function render() {
+  renderTasks();
+  renderEmptyState();
 }
 
-render(tasks);
+render();

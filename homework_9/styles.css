@@ -69,3 +69,7 @@
 .task {
   font-size: 24px;
 }
+
+.task:hover {
+  cursor: pointer;
+}
