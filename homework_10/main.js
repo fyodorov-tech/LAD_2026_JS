@@ -1,6 +1,3 @@
-/* application state */
-const tasks = getTasks();
-
 /* Task model */
 class Task {
   constructor(name) {
@@ -9,6 +6,9 @@ class Task {
     this.createdDate = new Date();
   }
 }
+
+/* application state */
+const tasks = getTasks();
 
 /* === HEADER === */
 /* Page header */
@@ -76,10 +76,26 @@ empty.textContent = "No tasks yet!";
 mainInner.append(empty);
 
 /* === STATE OPERATIONS === */
+function toTask(obj) {
+  const task = new Task(obj.name);
+  task.id = obj.id;
+  task.createdDate = new Date(obj.createdDate);
+  return task;
+}
+
 /* Load tasks from LocalStorage */
 function getTasks() {
   const JSONtasks = localStorage.getItem("tasks");
-  return JSONtasks !== null ? JSON.parse(JSONtasks) : [];
+
+  if (!JSONtasks) {
+    return [];
+  }
+
+  const tasksObj = JSON.parse(JSONtasks);
+
+  const tasks = tasksObj.map(toTask);
+
+  return tasks;
 }
 
 /* Save current state to LocalStorage */
