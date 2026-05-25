@@ -1,7 +1,8 @@
 import { createLayout } from "./ui/app-layout.js";
-import { TaskController } from "./controller.js/task-controller.js";
+import { TodoView } from "./ui/todo-view.js";
+import { TodoController } from "./controller.js/todo-controller.js";
 
 const ui = createLayout();
-
-const controller = new TaskController(ui);
+const todoView = new TodoView(ui);
+const controller = new TodoController(todoView);
 controller.init();
