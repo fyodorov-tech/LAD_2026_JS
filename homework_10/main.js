@@ -150,6 +150,18 @@ function removeTask(id) {
   removeTaskDOM(id);
 }
 
+function handleAddTask() {
+  const value = todoInput.value.trim();
+
+  if (value) {
+    const task = new Task(value);
+    addTask(task);
+
+    todoInput.value = "";
+    updateEmptyState();
+  }
+}
+
 /* === UI STATE === */
 /* Show or hide empty state depending on whether tasks exist */
 function updateEmptyState() {
@@ -172,30 +184,12 @@ function renderTasks() {
 /* Bind all UI event listeners */
 function bindEvents() {
   /* Handle click for adding new task */
-  todoBtn.addEventListener("click", function () {
-    const value = todoInput.value.trim();
-
-    if (value) {
-      const task = new Task(value);
-      addTask(task);
-
-      todoInput.value = "";
-      updateEmptyState();
-    }
-  });
+  todoBtn.addEventListener("click", handleAddTask);
 
   /* Handle Enter key for adding new task */
   todoInput.addEventListener("keydown", e => {
     if (e.key === "Enter") {
-      const value = todoInput.value.trim();
-
-      if (value) {
-        const task = new Task(value);
-        addTask(task);
-
-        todoInput.value = "";
-        updateEmptyState();
-      }
+      handleAddTask();
     }
   });
 
