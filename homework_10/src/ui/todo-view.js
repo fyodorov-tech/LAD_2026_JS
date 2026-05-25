@@ -32,10 +32,6 @@ export class TodoView {
     });
   }
 
-  // onClear(handler) {
-
-  // }
-
   onClearInput(handler) {
     this.#input.addEventListener("keydown", e => {
       if (e.key === "Escape") {

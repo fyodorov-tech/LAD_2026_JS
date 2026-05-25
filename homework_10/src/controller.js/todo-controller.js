@@ -16,7 +16,7 @@ export class TodoController {
   #bindEvents() {
     this.#view.onAdd(this.#handleAddTask);
     this.#view.onRemove(this.#handleRemoveTask);
-    this.#view.onClearInput(this.#view.clearInput());
+    this.#view.onClearInput(() => this.#view.clearInput());
   }
 
   #handleAddTask = () => {
@@ -41,6 +41,6 @@ export class TodoController {
 
   // #handleClearTasks = () => {
   //   TaskRepository.clear();
-  //   this.view.clear();
+  //   this.#view.clear();
   // };
 }
