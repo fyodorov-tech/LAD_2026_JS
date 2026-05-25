@@ -62,8 +62,6 @@ class TaskRepository {
   }
 }
 
-const tasks = TaskRepository.getAll();
-
 /* === HEADER === */
 /* Page header */
 const header = document.createElement("header");
@@ -129,13 +127,19 @@ empty.classList.add("todo__empty");
 empty.textContent = "No tasks yet!";
 mainInner.append(empty);
 
-/* === DOM OPERATIONS === */
-/* Create and append task element to DOM */
-function addTaskDOM(task) {
+function createTaskView(task) {
   const li = document.createElement("li");
   li.classList.add("task");
   li.textContent = task.name;
   li.dataset.id = task.id;
+
+  return li;
+}
+
+/* === DOM OPERATIONS === */
+/* Create and append task element to DOM */
+function addTaskDOM(task) {
+  const li = createTaskView(task);
   tasksList.append(li);
 }
 
