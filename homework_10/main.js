@@ -7,8 +7,62 @@ class Task {
   }
 }
 
-/* application state */
-const tasks = getTasks();
+class TaskRepository {
+  static #key = "tasks";
+  static #tasks = [];
+  static #initialized = false;
+
+  static #init() {
+    const raw = localStorage.getItem(this.#key);
+    const data = raw ? JSON.parse(raw) : [];
+
+    this.#tasks = data.map(this.toTask);
+    this.#initialized = true;
+  }
+
+  static #ensureInit() {
+    if (!this.#initialized) {
+      this.#init();
+    }
+  }
+
+  static getAll() {
+    this.#ensureInit();
+    return this.#tasks;
+  }
+
+  static add(task) {
+    this.#ensureInit();
+    this.#tasks.push(task);
+    this.#save();
+  }
+
+  static removeById(id) {
+    this.#ensureInit();
+    this.#tasks = this.#tasks.filter(task => task.id !== id);
+    this.#save();
+  }
+
+  static clear() {
+    this.#tasks = [];
+    this.#initialized = false;
+    localStorage.removeItem(this.#key);
+  }
+
+  static #save() {
+    const JSONtasks = JSON.stringify(this.#tasks);
+    localStorage.setItem(this.#key, JSONtasks);
+  }
+
+  static toTask(obj) {
+    const task = new Task(obj.name);
+    task.id = obj.id;
+    task.createdDate = new Date(obj.createdDate);
+    return task;
+  }
+}
+
+const tasks = TaskRepository.getAll();
 
 /* === HEADER === */
 /* Page header */
@@ -75,51 +129,6 @@ empty.classList.add("todo__empty");
 empty.textContent = "No tasks yet!";
 mainInner.append(empty);
 
-/* === STATE OPERATIONS === */
-function toTask(obj) {
-  const task = new Task(obj.name);
-  task.id = obj.id;
-  task.createdDate = new Date(obj.createdDate);
-  return task;
-}
-
-/* Load tasks from LocalStorage */
-function getTasks() {
-  const JSONtasks = localStorage.getItem("tasks");
-
-  if (!JSONtasks) {
-    return [];
-  }
-
-  const tasksObj = JSON.parse(JSONtasks);
-
-  const tasks = tasksObj.map(toTask);
-
-  return tasks;
-}
-
-/* Save current state to LocalStorage */
-function saveTasks() {
-  const JSONtasks = JSON.stringify(tasks);
-  localStorage.setItem("tasks", JSONtasks);
-}
-
-/* Add task to state */
-function addTaskState(task) {
-  tasks.push(task);
-  saveTasks();
-}
-
-/* Remove task from state */
-function removeTaskState(id) {
-  const taskIndex = tasks.findIndex(task => task.id === id);
-
-  if (taskIndex != -1) {
-    tasks.splice(taskIndex, 1);
-    saveTasks();
-  }
-}
-
 /* === DOM OPERATIONS === */
 /* Create and append task element to DOM */
 function addTaskDOM(task) {
@@ -138,26 +147,26 @@ function removeTaskDOM(id) {
   }
 }
 
-/* Add task (state + DOM sync) */
-function addTask(task) {
-  addTaskState(task);
-  addTaskDOM(task);
-}
-
-/* Remove task (state + DOM sync) */
-function removeTask(id) {
-  removeTaskState(id);
-  removeTaskDOM(id);
-}
-
 function handleAddTask() {
   const value = todoInput.value.trim();
 
   if (value) {
     const task = new Task(value);
-    addTask(task);
+    TaskRepository.add(task);
+    addTaskDOM(task);
 
     todoInput.value = "";
+    updateEmptyState();
+  }
+}
+
+function handleRemoveTask(event) {
+  const li = event.target.closest(".task");
+
+  if (li) {
+    const id = li.dataset.id;
+    TaskRepository.removeById(id);
+    removeTaskDOM(id);
     updateEmptyState();
   }
 }
@@ -165,7 +174,7 @@ function handleAddTask() {
 /* === UI STATE === */
 /* Show or hide empty state depending on whether tasks exist */
 function updateEmptyState() {
-  const isEmpty = tasks.length === 0;
+  const isEmpty = TaskRepository.getAll().length === 0;
 
   tasksList.classList.toggle("hidden", isEmpty);
   empty.classList.toggle("hidden", !isEmpty);
@@ -175,7 +184,7 @@ function updateEmptyState() {
 function renderTasks() {
   tasksList.innerHTML = "";
 
-  tasks.forEach(task => {
+  TaskRepository.getAll().forEach(task => {
     addTaskDOM(task);
   });
 }
@@ -201,16 +210,7 @@ function bindEvents() {
   });
 
   /* Handle task removal (event delegation) */
-  tasksList.addEventListener("click", e => {
-    const li = e.target.closest(".task");
-
-    if (li) {
-      const id = li.dataset.id;
-      removeTask(id);
-
-      updateEmptyState();
-    }
-  });
+  tasksList.addEventListener("click", handleRemoveTask);
 }
 
 /* === APP INITIALIZATION === */
